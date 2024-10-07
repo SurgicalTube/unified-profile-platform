@@ -9,30 +9,26 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const { isAuthenticated } = useAuth0();  // Get the authentication state
   const [showNotification, setShowNotification] = useState(false);
 
-  // Use useEffect to show the toast notification when the component renders
   useEffect(() => {
     if (!isAuthenticated && !showNotification) {
-      toast.info("You need to log in to view this page!", {
-        position: "top-center",
-        autoClose: 3000,
+      toast.warning("You need to log in to view this page!", {
+        position: "top-center",  // Use "top-center" for central positioning
+        autoClose: 3000,         // Auto close after 3 seconds
+        hideProgressBar: true,   // Hide the progress bar for a cleaner look
+        closeOnClick: true,      // Close the toast when clicked
+        pauseOnHover: true,      // Pause the toast on hover
+        draggable: true,         // Allow the toast to be draggable
       });
-      setShowNotification(true);
+      setShowNotification(true);  // Set notification to true to avoid repetition
     }
   }, [isAuthenticated, showNotification]);
 
-  // Render the requested component if authenticated
   if (isAuthenticated) {
     return <Component {...rest} />;
   }
 
   // Stay on the current page and show the toast notification
-  return (
-    <>
-      {/* ToastContainer will render the toast messages on the home page */}
-      <ToastContainer />
-      <Navigate to="/" /> {/* Redirect to home page but don't display any additional message */}
-    </>
-  );
+  return <Navigate to="/" />;
 };
 
 export default PrivateRoute;
