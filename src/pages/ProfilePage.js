@@ -4,10 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProfileData, setResume } from '../redux/slices/profileSlice';
 import '../styles/ProfilePage.css';
-import '../styles/glassStyles.css';
-import GsapAnimatedHeader from '../animations/GsapAnimatedHeader'; // GSAP Header animation
-import ProfileForm from '../components/forms/ProfileForm'; // Modular form component
-import SaveButton from '../components/common/SaveButton'; // Modular save button
+import GsapAnimatedHeader from '../animations/GsapAnimatedHeader';
+import ProfileForm from '../components/forms/ProfileForm';
+import SaveButton from '../components/common/SaveButton';
 import { Box, Paper } from '@mui/material';
 
 const ProfilePage = () => {
@@ -74,19 +73,31 @@ const ProfilePage = () => {
   };
 
   return (
-    <Box className="profile-container glass-container" sx={{ padding: 3, position: 'relative' }}>
-      {/* Use the GSAP AnimatedHeader for the Profile Page */}
+    <Box className="profile-page-container">
+      {/* Centered GSAP Animated Header */}
       <GsapAnimatedHeader>Profile Page</GsapAnimatedHeader>
 
-      <Paper className="glass-container" elevation={3} sx={{ padding: 3, maxWidth: 600, margin: 'auto' }}>
-        <ProfileForm
-          profileData={profileData}
-          handleChange={handleChange}
-          handleFileChange={handleFileChange}
-          resumeFile={resumeFile}
-        />
-        <SaveButton handleSave={handleSave} />
-      </Paper>
+      {/* Main container for form and button */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+        <Paper
+          className="glass-container"
+          elevation={3}
+          sx={{
+            padding: 3,
+            maxWidth: '900px',
+            width: '90%',
+            margin: '20px auto',
+          }}
+        >
+          <ProfileForm
+            profileData={profileData}
+            handleChange={handleChange}
+            handleFileChange={handleFileChange}
+            resumeFile={resumeFile}
+          />
+          <SaveButton handleSave={handleSave} />
+        </Paper>
+      </Box>
     </Box>
   );
 };

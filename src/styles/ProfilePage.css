@@ -1,0 +1,51 @@
+/* src/styles/ProfilePage.css */
+
+
+/* Apply Arial font to the entire page */
+body {
+  font-family: 'Arial', sans-serif;  /* Set Arial as the default font */
+}
+
+/* Background and Main Container Styling */
+.profile-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(135deg, #b9b0eb 0%, #fda085 100%);
+  padding: 40px;
+}
+
+/* Glass Container Styling */
+.glass-container {
+  padding: 30px;
+  max-width: 900px; /* Set max-width with units */
+  width: 90%; /* Responsive width to fit container */
+  margin: 20px auto; /* Center the container */
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.glass-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.2);
+
+}
+
+/* Styling for Inputs and Buttons */
+.glass-input, .glass-button, .gs-header {
+  font-family: 'Arial', sans-serif;  /* Apply Arial font to inputs and buttons as well */
+}
+
+/* GSAP Header Styling */
+.gs-header {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}

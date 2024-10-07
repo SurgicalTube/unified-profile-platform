@@ -1,0 +1,15 @@
+/* src/styles/ProfilePageHeader.css */
+
+.header-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .animated-header {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }

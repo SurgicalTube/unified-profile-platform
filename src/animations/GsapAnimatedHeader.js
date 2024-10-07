@@ -2,23 +2,25 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import '../styles/ProfilePageHeader.css'; // Import CSS for header styles
 
 const GsapAnimatedHeader = ({ children, ...props }) => {
-  const headerRef = useRef(null);  // Create a reference for the header element
+  const headerRef = useRef(null);
 
   useEffect(() => {
-    // Apply GSAP animation to the header when the component mounts
     gsap.fromTo(
       headerRef.current,
-      { opacity: 0, y: -50 },  // Starting state: transparent and moved up
-      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }  // Ending state: visible and original position
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
     );
   }, []);
 
   return (
-    <h1 ref={headerRef} {...props}>
-      {children}
-    </h1>
+    <div className="header-container"> {/* Add a wrapper for the header */}
+      <h1 ref={headerRef} className="animated-header" {...props}>
+        {children}
+      </h1>
+    </div>
   );
 };
 

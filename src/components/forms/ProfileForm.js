@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { TextField, Typography, Button } from '@mui/material';
 import { animateFormFields } from '../../animations/gsapAnimations'; // Import GSAP animation function
 
+
 const ProfileForm = ({ profileData, handleChange, handleFileChange, resumeFile }) => {
   const formRef = useRef(null); // Ref for form elements
 
