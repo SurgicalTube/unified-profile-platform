@@ -66,19 +66,18 @@ const ProfileForm = ({ profileData, handleChange, handleFileChange, resumeFile }
         fullWidth
         margin="normal"
       />
-      <Button
-        variant="contained"
-        component="label"
-        color="primary"
-      >
-        Upload Resume
-        <input
-          type="file"
-          accept=".pdf,.doc,.docx"
-          hidden
-          onChange={handleFileChange}
-        />
-      </Button>
+<Button
+  className="glass-upload-button"
+  component="label"
+>
+  Upload Resume
+  <input
+    type="file"
+    accept=".pdf,.doc,.docx"
+    hidden
+    onChange={handleFileChange}
+  />
+</Button>
       {resumeFile && (
         <Typography variant="body1" color="textSecondary" sx={{ mt: 2 }}>
           Uploaded file: {resumeFile.name}

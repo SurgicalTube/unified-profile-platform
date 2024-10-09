@@ -7,7 +7,7 @@ import '../styles/ProfilePage.css';
 import GsapAnimatedHeader from '../animations/GsapAnimatedHeader';
 import ProfileForm from '../components/forms/ProfileForm';
 import SaveButton from '../components/common/SaveButton';
-import { Box, Paper } from '@mui/material';
+import { Box } from '@mui/material'; // Only importing Box for layout purposes
 
 const ProfilePage = () => {
   const profile = useSelector((state) => state.profile.profile);
@@ -79,16 +79,7 @@ const ProfilePage = () => {
 
       {/* Main container for form and button */}
       <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-        <Paper
-          className="glass-container"
-          elevation={3}
-          sx={{
-            padding: 3,
-            maxWidth: '900px',
-            width: '90%',
-            margin: '20px auto',
-          }}
-        >
+        <div className="glass-container">
           <ProfileForm
             profileData={profileData}
             handleChange={handleChange}
@@ -96,7 +87,7 @@ const ProfilePage = () => {
             resumeFile={resumeFile}
           />
           <SaveButton handleSave={handleSave} />
-        </Paper>
+        </div>
       </Box>
     </Box>
   );

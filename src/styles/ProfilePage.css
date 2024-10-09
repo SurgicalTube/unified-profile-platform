@@ -26,7 +26,7 @@ body {
   border-radius: 16px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 232, 232, 0.05);
+  background: rgba(195, 244, 236, 0.1);
   border: 1px solid rgba(219, 93, 93, 0.224);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -49,3 +49,61 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
+
+/* Styling for Glass Button */
+.glass-button {
+  background: rgba(255, 255, 255, 0.15);  /* Light transparent background for glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Slight border for depth */
+  border-radius: 12px;  /* Rounded corners */
+  padding: 12px 24px;   /* Adjusted padding */
+  font-weight: bold;    /* Bold text */
+  color: #333;          /* Text color */
+  cursor: pointer;      /* Pointer cursor */
+  transition: all 0.3s ease;  /* Smooth transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.25);  /* More opaque background on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  /* Increased shadow */
+}
+
+.glass-button:active {
+  background: rgba(255, 255, 255, 0.35);  /* More opaque on click */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Larger shadow on active click */
+}
+
+.glass-button:focus {
+  outline: none;  /* Remove default outline */
+}
+
+/* Styling for Upload Resume Button */
+.glass-upload-button {
+  background: rgba(255, 255, 255, 0.15);  /* Light transparent background for glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Slight border for depth */
+  border-radius: 12px;  /* Rounded corners */
+  padding: 12px 24px;   /* Adjusted padding */
+  font-weight: bold;    /* Bold text */
+  color: #333;          /* Text color */
+  cursor: pointer;      /* Pointer cursor */
+  transition: all 0.3s ease;  /* Smooth transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+  width: 100%; /* Full width */
+  margin: 10px 0; /* Spacing around the button */
+}
+
+.glass-upload-button:hover {
+  background: rgba(255, 255, 255, 0.25);  /* More opaque background on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  /* Increased shadow */
+}
+
+.glass-upload-button:active {
+  background: rgba(255, 255, 255, 0.35);  /* More opaque on click */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Larger shadow on active click */
+}
+
+.glass-upload-button:focus {
+  outline: none;  /* Remove default outline */
+}
+
