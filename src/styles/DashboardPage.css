@@ -1,0 +1,59 @@
+/* src/styles/DashboardPage.css */
+
+/* Container for the entire dashboard page */
+.dashboard-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #b9b0eb 0%, #fda085 100%);
+    padding: 40px;
+    position: relative; /* To position child elements relative to this container */
+  }
+  
+  /* Glassmorphism Container for Dashboard Content */
+  .dashboard-container {
+    padding: 40px;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 16px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .dashboard-container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Header for Dashboard */
+  .dashboard-header {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  /* Content Styling */
+  .dashboard-content p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  /* Styling for Resume Information */
+  .resume-info {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }

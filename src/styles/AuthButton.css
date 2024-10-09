@@ -1,0 +1,28 @@
+/* src/styles/AuthButton.css */
+
+/* Glassmorphism Styling for Login/Logout Buttons */
+.auth-glass-button {
+    background: rgba(255, 255, 255, 0.15);  /* Light transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.3);  /* Light border */
+    border-radius: 12px;  /* Rounded corners */
+    padding: 12px 24px;  /* Padding for the button */
+    font-weight: bold;  /* Bold text */
+    color: #333;  /* Text color */
+    cursor: pointer;  /* Pointer cursor on hover */
+    transition: all 0.3s ease;  /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+  }
+  
+  .auth-glass-button:hover {
+    background: rgba(255, 255, 255, 0.25);  /* More opaque background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  /* Larger shadow */
+  }
+  
+  .auth-glass-button:active {
+    background: rgba(255, 255, 255, 0.35);  /* More opaque on active click */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Larger shadow on click */
+  }
+  
+  .auth-glass-button:focus {
+    outline: none;  /* Remove focus outline */
+  }
