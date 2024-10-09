@@ -1,6 +1,5 @@
 /* src/styles/ProfilePage.css */
 
-
 /* Apply Arial font to the entire page */
 body {
   font-family: 'Arial', sans-serif;  /* Set Arial as the default font */
@@ -34,7 +33,6 @@ body {
 .glass-container:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   background: rgba(255, 255, 255, 0.2);
-
 }
 
 /* Styling for Inputs and Buttons */
@@ -49,7 +47,6 @@ body {
   font-weight: bold;
   text-align: center;
 }
-
 
 /* Styling for Glass Button */
 .glass-button {
@@ -81,7 +78,7 @@ body {
 /* Styling for Upload Resume Button */
 .glass-upload-button {
   background: rgba(255, 255, 255, 0.15);  /* Light transparent background for glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.3);  /* Slight border for depth */
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Slight border */
   border-radius: 12px;  /* Rounded corners */
   padding: 12px 24px;   /* Adjusted padding */
   font-weight: bold;    /* Bold text */
@@ -89,21 +86,144 @@ body {
   cursor: pointer;      /* Pointer cursor */
   transition: all 0.3s ease;  /* Smooth transition */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
-  width: 100%; /* Full width */
-  margin: 10px 0; /* Spacing around the button */
+  width: auto; /* Adjusted width */
+  margin: 0; /* Reset margin */
 }
 
 .glass-upload-button:hover {
   background: rgba(255, 255, 255, 0.25);  /* More opaque background on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  /* Increased shadow */
 }
 
 .glass-upload-button:active {
   background: rgba(255, 255, 255, 0.35);  /* More opaque on click */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Larger shadow on active click */
 }
 
-.glass-upload-button:focus {
-  outline: none;  /* Remove default outline */
+/* Adjust Tab styling */
+.MuiTabs-root {
+  justify-content: center; /* Center tabs */
 }
 
+.MuiTab-root {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1); /* Transparent background */
+  border-radius: 12px 12px 0 0; /* Rounded top corners */
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.MuiTab-root:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.MuiTabs-indicator {
+  background-color: #8a2be2; /* Indicator color */
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Style the tab container */
+.glass-container {
+  padding: 30px;
+  max-width: 900px;
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(195, 244, 236, 0.1);
+  border: 1px solid rgba(219, 93, 93, 0.224);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Styling for Document Upload Section */
+.document-upload-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.document-upload-section input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+.document-upload-label {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: inline-block;
+}
+
+.document-upload-label:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.document-upload-label:active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Styling for the glass dropdown */
+/* Custom styling for the dropdown */
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.15); /* Light transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Slight border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 10px 15px; /* Internal padding */
+  font-weight: bold; /* Bold text */
+  color: #333; /* Text color */
+  cursor: pointer; /* Pointer cursor */
+  transition: all 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 200px; /* Set a width */
+}
+
+/* Hover and focus states */
+.glass-dropdown:hover {
+  background: rgba(255, 255, 255, 0.25); /* More opaque background */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow */
+}
+
+.glass-dropdown:focus {
+  outline: none; /* Remove default outline */
+}
+
+/* Additional styling for document upload button */
+.document-upload-label {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: inline-block;
+}
+
+.document-upload-label:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.document-upload-label:active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Styling for the upload-section container */
+.upload-section {
+  display: flex;
+  justify-content: center; /* Center elements */
+  align-items: center;     /* Align elements vertically */
+  gap: 16px;               /* Spacing between elements */
+  margin: 20px 0;          /* Margin for spacing */
+}

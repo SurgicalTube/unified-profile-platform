@@ -80,7 +80,7 @@ const ProfileForm = ({ profileData, handleChange, handleFileChange, resumeFile }
 </Button>
       {resumeFile && (
         <Typography variant="body1" color="textSecondary" sx={{ mt: 2 }}>
-          Uploaded file: {resumeFile.name}
+          Uploaded files will show in the Documents tab {resumeFile.name}
         </Typography>
       )}
     </form>
