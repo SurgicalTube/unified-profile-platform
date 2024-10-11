@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import { setProfileData, setResume } from '../redux/slices/profileSlice';
 import '../styles/ProfilePage.css';
 import GsapAnimatedHeader from '../animations/GsapAnimatedHeader';
@@ -10,6 +10,7 @@ import ProfileForm from '../components/forms/ProfileForm';
 import SaveButton from '../components/common/SaveButton';
 import DocumentList from '../components/DocumentList';
 import { Box, Tab, Tabs } from '@mui/material';
+import axios from 'axios'; // Import axios for HTTP requests
 
 const ProfilePage = () => {
   const profile = useSelector((state) => state.profile.profile);
@@ -19,11 +20,12 @@ const ProfilePage = () => {
   const [education, setEducation] = useState(profile.education || '');
   const [skills, setSkills] = useState(profile.skills || []);
   const [resumeFile, setResumeFile] = useState(profile.resume || null);
-  const [documents, setDocuments] = useState(profile.documents || []); // Initialize with profile.documents
-  const [documentType, setDocumentType] = useState(''); // State for document type
-  const [tabIndex, setTabIndex] = useState(0); // State to control active tab
+  const [documents, setDocuments] = useState(profile.documents || []);
+  const [documentType, setDocumentType] = useState('');
+  const [tabIndex, setTabIndex] = useState(0);
+  const [uploadStatus, setUploadStatus] = useState(''); // State for upload status
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const profileData = { name, email, experience, education, skills, documents };
 
@@ -42,7 +44,7 @@ const ProfilePage = () => {
   }, [dispatch]);
 
   const handleBackClick = () => {
-    navigate('/'); // Navigate to home page
+    navigate('/');
   };
 
   const handleChange = (e) => {
@@ -69,16 +71,38 @@ const ProfilePage = () => {
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const newDocument = { name: file.name, type: 'resume', size: file.size, content: file };
-      setResumeFile(file);
+    setResumeFile(e.target.files[0]); // Store the selected file
+  };
+
+  // Handle the file upload to the backend
+  const handleFileUpload = async () => {
+    if (!resumeFile) {
+      alert('Please select a file first');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('resume', resumeFile); // Append file to FormData
+
+    try {
+      const response = await axios.post('http://localhost:5001/upload-resume', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      console.log(response.data);
+      setUploadStatus('Upload successful!');
+      // Dispatch and save the uploaded file details
+      const newDocument = { name: resumeFile.name, type: 'resume', size: resumeFile.size };
       setDocuments((prevDocs) => [...prevDocs, newDocument]);
 
-      // Update profile and local storage immediately after change
-      const updatedProfile = { ...profile, resume: file, documents: [...documents, newDocument] };
+      const updatedProfile = { ...profile, resume: resumeFile, documents: [...documents, newDocument] };
       dispatch(setProfileData(updatedProfile));
       localStorage.setItem('profileData', JSON.stringify(updatedProfile));
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      setUploadStatus('Upload failed.');
     }
   };
 
@@ -88,12 +112,11 @@ const ProfilePage = () => {
       const newDocument = { name: file.name, type: documentType, size: file.size, content: file };
       setDocuments((prevDocs) => [...prevDocs, newDocument]);
 
-      // Update profile and save to local storage
       const updatedProfile = { ...profile, documents: [...documents, newDocument] };
       dispatch(setProfileData(updatedProfile));
       localStorage.setItem('profileData', JSON.stringify(updatedProfile));
     } else {
-      alert("Please select a document type before uploading.");
+      alert('Please select a document type before uploading.');
     }
   };
 
@@ -101,7 +124,6 @@ const ProfilePage = () => {
     const updatedDocuments = documents.filter((doc) => doc.name !== fileName);
     setDocuments(updatedDocuments);
 
-    // Update profile data and local storage on document delete
     const updatedProfile = { ...profile, documents: updatedDocuments };
     dispatch(setProfileData(updatedProfile));
     localStorage.setItem('profileData', JSON.stringify(updatedProfile));
@@ -149,7 +171,6 @@ const ProfilePage = () => {
         {tabIndex === 1 && (
           <div className="glass-container">
             <div className="upload-section">
-              {/* Updated Dropdown to use custom CSS classes */}
               <select
                 onChange={(e) => setDocumentType(e.target.value)}
                 value={documentType}
@@ -161,15 +182,23 @@ const ProfilePage = () => {
                 <option value="portfolio">Portfolio</option>
               </select>
 
-              {/* Custom Styled Upload Button */}
               <label className="document-upload-label">
                 Upload Document
                 <input type="file" hidden onChange={handleDocumentUpload} />
               </label>
             </div>
+
             <DocumentList documents={documents} onDelete={handleDeleteDocument} />
           </div>
         )}
+      </Box>
+
+      {/* Resume Upload Section */}
+      <Box sx={{ padding: '20px', width: '100%' }}>
+        <h2>Upload Resume for Parsing</h2>
+        <input type="file" onChange={handleFileChange} />
+        <button onClick={handleFileUpload}>Upload Resume</button>
+        <p>{uploadStatus}</p> {/* Display upload status */}
       </Box>
     </Box>
   );

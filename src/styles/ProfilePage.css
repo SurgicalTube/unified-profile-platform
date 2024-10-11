@@ -228,30 +228,3 @@ body {
   margin: 20px 0;          /* Margin for spacing */
 }
 
-/* Back Button Styling */
-.back-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  background: rgba(255, 255, 255, 0.15);
-  color: #333;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.back-button:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.back-button:active {
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.back-button:focus {
-  outline: none;
-}
