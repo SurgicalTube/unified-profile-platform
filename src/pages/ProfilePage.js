@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
 import { setProfileData, setResume } from '../redux/slices/profileSlice';
 import '../styles/ProfilePage.css';
 import GsapAnimatedHeader from '../animations/GsapAnimatedHeader';
 import ProfileForm from '../components/forms/ProfileForm';
 import SaveButton from '../components/common/SaveButton';
 import DocumentList from '../components/DocumentList';
-import { Box, Typography, Tab, Tabs, Button } from '@mui/material'; // Import necessary Material UI components
+import { Box, Tab, Tabs } from '@mui/material';
 
 const ProfilePage = () => {
   const profile = useSelector((state) => state.profile.profile);
@@ -22,6 +23,7 @@ const ProfilePage = () => {
   const [documentType, setDocumentType] = useState(''); // State for document type
   const [tabIndex, setTabIndex] = useState(0); // State to control active tab
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const profileData = { name, email, experience, education, skills, documents };
 
@@ -38,6 +40,10 @@ const ProfilePage = () => {
       setDocuments(storedProfile.documents || []);
     }
   }, [dispatch]);
+
+  const handleBackClick = () => {
+    navigate('/'); // Navigate to home page
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -110,6 +116,11 @@ const ProfilePage = () => {
 
   return (
     <Box className="profile-page-container">
+      {/* Back Button */}
+      <button className="back-button" onClick={handleBackClick}>
+        ← Back to Home
+      </button>
+
       {/* Centered GSAP Animated Header */}
       <GsapAnimatedHeader>Profile Page</GsapAnimatedHeader>
 
@@ -136,29 +147,29 @@ const ProfilePage = () => {
         )}
 
         {tabIndex === 1 && (
-              <div className="glass-container">
-              <div className="upload-section">
-                {/* Updated Dropdown to use custom CSS classes */}
-                <select
-                  onChange={(e) => setDocumentType(e.target.value)}
-                  value={documentType}
-                  className="glass-dropdown"  // Updated class for styling
-                >
-                  <option value="">Select Document Type</option>
-                  <option value="resume">Resume</option>
-                  <option value="certification">Certification</option>
-                  <option value="portfolio">Portfolio</option>
-                </select>
-          
-                {/* Custom Styled Upload Button */}
-                <label className="document-upload-label">
-                  Upload Document
-                  <input type="file" hidden onChange={handleDocumentUpload} />
-                </label>
-              </div>
-              <DocumentList documents={documents} onDelete={handleDeleteDocument} />
+          <div className="glass-container">
+            <div className="upload-section">
+              {/* Updated Dropdown to use custom CSS classes */}
+              <select
+                onChange={(e) => setDocumentType(e.target.value)}
+                value={documentType}
+                className="glass-dropdown"
+              >
+                <option value="">Select Document Type</option>
+                <option value="resume">Resume</option>
+                <option value="certification">Certification</option>
+                <option value="portfolio">Portfolio</option>
+              </select>
+
+              {/* Custom Styled Upload Button */}
+              <label className="document-upload-label">
+                Upload Document
+                <input type="file" hidden onChange={handleDocumentUpload} />
+              </label>
             </div>
-          )}
+            <DocumentList documents={documents} onDelete={handleDeleteDocument} />
+          </div>
+        )}
       </Box>
     </Box>
   );
