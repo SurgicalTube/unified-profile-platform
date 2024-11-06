@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Unified Profile Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The **Unified Profile Platform** is an advanced React-based application that serves as a centralized solution for managing professional profiles and streamlining the job application process. It features a modern glassmorphism design, secure authentication through Auth0, and comprehensive profile management capabilities.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+## 🌟 Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Profile Management
+- **Multi-Document Support**: Upload and manage multiple versions of resumes, cover letters, and certifications
+- **Profile Versioning**: Maintain different versions of profiles for various industries/roles
+- **Real-time Updates**: Instant saving and synchronization of profile changes
+- **Document Organization**: Structured storage and management of professional documents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Interface
+- **Modern Design**: Implements glassmorphism design principles for a contemporary look
+- **Responsive Layout**: Fully responsive design that works across all devices
+- **Animated Interactions**: GSAP-powered animations for smooth user experience
+- **Tab-based Navigation**: Organized content presentation through intuitive tabs
 
-### `npm test`
+### Security & Authentication
+- **Auth0 Integration**: Secure authentication and authorization
+- **Protected Routes**: Role-based access control for sensitive areas
+- **Secure Storage**: Encrypted local storage for user data
+- **Session Management**: Robust session handling and persistence
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Technology Stack
 
-### `npm run build`
+### Frontend
+- React 18.3.1
+- Redux Toolkit for state management
+- Material-UI (MUI) 6.1.2
+- GSAP for animations
+- React Router DOM 6.26.2
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### State Management & Data
+- Redux with Redux Toolkit
+- Local Storage persistence
+- Real-time state synchronization
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Styling & UI
+- Custom CSS with glassmorphism effects
+- Material-UI components
+- GSAP animations
+- Responsive design principles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Authentication & Security
+- Auth0 React SDK
+- Protected routes implementation
+- Secure session management
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Auth0 account and credentials
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SurgicalTube/unified-profile-platform.git
+   cd unified-profile-platform
+2. Install dependencies for both frontend and backend:
+   # For backend
+        cd backend
+        npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# For frontend
+        cd ../frontend
+        npm install
 
-## Learn More
+### Environment Variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a .env file in both the backend and frontend directories, and add the following environment variables:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+** Backend (backend/.env)
+### MONGODB_URI=<your-mongodb-uri>  -->  This Should be Set up on your own or set it up for this project
+PORT=5001
+AUTH0_DOMAIN=<your-auth0-domain> --> Again, set up on your own, I cant afford to keep this... If you have other open source options, please do them
+AUTH0_CLIENT_ID=<your-auth0-client-id>
+AUTH0_CLIENT_SECRET=<your-auth0-client-secret>
+**
 
-### Code Splitting
+### Frontend (frontend/.env)
+    NEXT_PUBLIC_AUTH0_DOMAIN=<your-auth0-domain>
+    NEXT_PUBLIC_AUTH0_CLIENT_ID=<your-auth0-client-id>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Running the Project
 
-### Analyzing the Bundle Size
+	1.	Start the backend server:
+      cd backend
+      npm start
+    2. Start the frontend development server:
+    cd frontend
+    npm run dev
+    	3.	Visit http://localhost:3000 in your browser to view the frontend, and http://localhost:5001 to check the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Project Structure
 
-### Making a Progressive Web App
+unified-profile-platform/
+├── backend/           # Node.js backend with Express and MongoDB connection
+│   ├── db.js          # Database connection file
+│   ├── server.js      # Main server file
+│   └── .env           # Environment variables for backend
+├── frontend/          # Next.js frontend with React and Tailwind CSS
+│   ├── pages/         # Next.js pages
+│   ├── components/    # Reusable components
+│   └── .env           # Environment variables for frontend
+├── README.md          # Project documentation
+└── .gitignore         # Git ignore file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Contributing
 
-### Advanced Configuration
+Contributions are welcome! Please follow these steps to contribute:
+	1.	Fork the project.
+	2.	Create your feature branch (git checkout -b feature/AmazingFeature).
+	3.	Commit your changes (git commit -m 'Add some AmazingFeature').
+	4.	Push to the branch (git push origin feature/AmazingFeature).
+	5.	Open a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### License
 
-### Deployment
+Distributed under the MIT License. See LICENSE for more information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: https://github.com/SurgicalTube/unified-profile-platform
