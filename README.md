@@ -1,5 +1,8 @@
 # Unified Profile Platform
 
+> **Note**: This project is currently a work in progress and may not be fully functional. Contributions are welcome!
+
+
 ## Overview
 The **Unified Profile Platform** is an advanced React-based application that serves as a centralized solution for managing professional profiles and streamlining the job application process. It features a modern glassmorphism design, secure authentication through Auth0, and comprehensive profile management capabilities.
 
