@@ -63,7 +63,7 @@ The **Unified Profile Platform** is an advanced React-based application that ser
 - Protected routes implementation
 - Secure session management
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -113,17 +113,17 @@ Running the Project
 
 ### Project Structure
 
-unified-profile-platform/
-├── backend/           # Node.js backend with Express and MongoDB connection
-│   ├── db.js          # Database connection file
-│   ├── server.js      # Main server file
-│   └── .env           # Environment variables for backend
-├── frontend/          # Next.js frontend with React and Tailwind CSS
-│   ├── pages/         # Next.js pages
-│   ├── components/    # Reusable components
-│   └── .env           # Environment variables for frontend
-├── README.md          # Project documentation
-└── .gitignore         # Git ignore file
+	unified-profile-platform/
+	├── backend/           # Node.js backend with Express and MongoDB connection
+	│   ├── db.js          # Database connection file
+	│   ├── server.js      # Main server file
+	│   └── .env           # Environment variables for backend
+	├── frontend/          # Next.js frontend with React and Tailwind CSS
+	│   ├── pages/         # Next.js pages
+	│   ├── components/    # Reusable components
+	│   └── .env           # Environment variables for frontend
+	├── README.md          # Project documentation
+	└── .gitignore         # Git ignore file
 
 ### Contributing
 
